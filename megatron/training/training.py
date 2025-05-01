@@ -1324,6 +1324,29 @@ def dummy_train_step(data_iterator):
         batch = get_batch_on_this_tp_rank(data_iterator)
         batch = get_batch_on_this_cp_rank(batch)
 
+def compute_global_weight_delta(model):
+    # Save current weights
+    weight_before = []
+    for param in model.parameters():
+        if param.requires_grad:
+            weight_before.append(param.detach().clone())
+
+    return weight_before
+
+def get_l2_delta_and_reduce(model, weight_before):
+    local_squared_diff = 0.0
+    for param, before in zip(model.parameters(), weight_before):
+        if param.requires_grad:
+            delta = (param.detach() - before).norm(2).item()
+            local_squared_diff += delta ** 2
+
+    # Convert to tensor and all_reduce
+    delta_tensor = torch.tensor(local_squared_diff, device=torch.cuda.current_device())
+    torch.distributed.all_reduce(delta_tensor, op=torch.distributed.ReduceOp.SUM)
+
+    # Compute final L2 norm
+    global_delta_l2 = torch.sqrt(delta_tensor)
+    return global_delta_l2.item()
 
 def train_step(forward_step_func, data_iterator, model, optimizer, opt_param_scheduler, config):
     """Single training step."""
