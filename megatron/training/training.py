@@ -856,8 +856,49 @@ def pretrain(
             )
 
         print_datetime('after training is done')
+        
 
-        if args.save and iteration != 0 and iteration % args.save_interval != 0:
+    
+    def should_emergency_save(iteration, last_checkpoint_iter, save_interval, threshold_frac=0.25):
+        """Check whether enough time has passed since the last checkpoint to save another."""
+        flag_path = '/workspace/megatron2/save_now.flag'
+        if not os.path.exists(flag_path):
+            return False
+        gap = iteration - last_checkpoint_iter
+        return gap >= int(threshold_frac * save_interval)
+
+    
+    if not args.skip_train:
+        print_rank_0('training ...')
+
+        if args.dataloader_type == 'cyclic' and args.retro_project_dir:
+            assert args.retro_cyclic_train_iters is not None
+            args.train_iters = args.retro_cyclic_train_iters
+            print_rank_0("retro cyclic train iters : %d" % args.train_iters)
+
+        iteration = 0
+        last_checkpoint_iter = 0  # Track the last checkpoint iteration
+
+        if args.do_train and args.train_iters > 0:
+            iteration, num_floating_point_operations_so_far = train(
+                forward_step_func,
+                model,
+                optimizer,
+                opt_param_scheduler,
+                train_data_iterator,
+                valid_data_iterator,
+                process_non_loss_data_func,
+                config,
+                checkpointing_context,
+                non_loss_data_func,
+            )
+
+        print_datetime('after training is done')
+
+        if args.save and (
+            iteration % args.save_interval == 0 or
+            should_emergency_save(iteration, last_checkpoint_iter, args.save_interval)
+        ):
             save_checkpoint(
                 iteration,
                 model,
@@ -868,6 +909,20 @@ def pretrain(
                 train_data_iterator=train_data_iterator,
                 preprocess_common_state_dict_fn=preprocess_common_state_dict,
             )
+
+            last_checkpoint_iter = iteration  # Update after saving
+
+            if os.path.exists("/workspace/megatron2/save_now.flag"):
+                os.remove("/workspace/megatron2/save_now.flag")
+
+            if args.do_checkpoint_save:
+                print_rank_0("\n✅ Manual checkpoint saved. Exiting training...\n")
+                sys.exit(0)
+
+            args.do_checkpoint_save = False
+
+
+
 
         one_logger and one_logger.log_metrics(
             {'app_train_loop_finish_time': one_logger_utils.get_timestamp_in_ms()}

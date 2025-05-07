@@ -322,6 +322,7 @@ def save_checkpoint(iteration, model, optimizer, opt_param_scheduler, num_floati
     """
     start_ckpt = time()
     args = get_args()
+    print_rank_0(f"Async save value:{args.async_save}")
 
     if args.async_save and not is_empty_async_queue():
         print_rank_0('WARNING: Starting a checkpoint save before previous has finished. Consider increasing the checkpoint interval.')

@@ -6,6 +6,11 @@ from functools import partial
 from typing import List, Optional, Tuple, Union
 
 import torch
+import os
+
+import time
+import threading
+from megatron import get_args, print_rank_0
 
 from megatron.core import parallel_state
 from megatron.core.datasets.blended_megatron_dataset_builder import BlendedMegatronDatasetBuilder
@@ -344,13 +349,29 @@ def train_valid_test_datasets_provider(train_val_test_num_samples):
 
     return train_ds, valid_ds, test_ds
 
+# === ADDED: Check for checkpoint signal file ===
+def pretrain_with_checkpoint_trigger(*args, **kwargs):
+
+    signal_path = "/workspace/megatron2/save_now.flag"
+
+    def monitor_signal():
+        while True:
+            if os.path.exists(signal_path):
+                os.remove(signal_path)  # Remove early to avoid retriggers
+                print_rank_0("\n🔁 Checkpoint trigger signal received! Forcing save...\n")
+                torch.distributed.barrier()
+                get_args().do_checkpoint_save = True
+            time.sleep(10)
+
+    threading.Thread(target=monitor_signal, daemon=True).start()
+    pretrain(*args, **kwargs)
+
+
+
 
 if __name__ == "__main__":
-
-    # Temporary for transition to core datasets
     train_valid_test_datasets_provider.is_distributed = True
-
-    pretrain(
+    pretrain_with_checkpoint_trigger(
         train_valid_test_datasets_provider,
         model_provider,
         ModelType.encoder_or_decoder,
@@ -358,3 +379,4 @@ if __name__ == "__main__":
         args_defaults={'tokenizer_type': 'GPT2BPETokenizer'},
         extra_args_provider=add_modelopt_args if has_nvidia_modelopt else None,
     )
+
