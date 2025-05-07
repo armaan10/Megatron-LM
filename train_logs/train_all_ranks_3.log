@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 W0430 06:31:11.257000 13158 torch/distributed/run.py:793] 
 W0430 06:31:11.257000 13158 torch/distributed/run.py:793] *****************************************
 W0430 06:31:11.257000 13158 torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
 W0430 06:31:11.257000 13158 torch/distributed/run.py:793] *****************************************
+=======
+W0501 09:32:42.524000 84875 torch/distributed/run.py:793] 
+W0501 09:32:42.524000 84875 torch/distributed/run.py:793] *****************************************
+W0501 09:32:42.524000 84875 torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0501 09:32:42.524000 84875 torch/distributed/run.py:793] *****************************************
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 /usr/local/lib/python3.10/dist-packages/modelopt/torch/nas/plugins/__init__.py:15: DeprecationWarning: The 'megatron.core.transformer.custom_layers.transformer_engine' 
     module is deprecated and will be removed in 0.10.0. Please use 
     'megatron.core.extensions.transformer_engine' instead.
@@ -14,7 +21,15 @@ W0430 06:31:11.257000 13158 torch/distributed/run.py:793] **********************
     module is deprecated and will be removed in 0.10.0. Please use 
     'megatron.core.extensions.transformer_engine' instead.
   from .megatron import *
+<<<<<<< HEAD
 using world size: 3, data-parallel size: 1, context-parallel size: 1, hierarchical context-parallel sizes: Nonetensor-model-parallel size: 1, encoder-tensor-model-parallel size: 0, pipeline-model-parallel size: 3, encoder-pipeline-model-parallel size: 0
+=======
+/usr/local/lib/python3.10/dist-packages/modelopt/torch/nas/plugins/__init__.py:15: DeprecationWarning: The 'megatron.core.transformer.custom_layers.transformer_engine' 
+    module is deprecated and will be removed in 0.10.0. Please use 
+    'megatron.core.extensions.transformer_engine' instead.
+  from .megatron import *
+using world size: 4, data-parallel size: 1, context-parallel size: 1, hierarchical context-parallel sizes: Nonetensor-model-parallel size: 2, encoder-tensor-model-parallel size: 0, pipeline-model-parallel size: 2, encoder-pipeline-model-parallel size: 0
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 WARNING: Setting args.overlap_p2p_comm and args.align_param_gather to False since non-interleaved schedule does not support overlapping p2p communication and aligned param AG
 Number of virtual stages per pipeline stage: None
 WARNING: Setting args.check_for_nan_in_loss_and_grad to False since dynamic loss scaling is being used
@@ -131,9 +146,15 @@ using torch.float16 for parameters ...
   enable_gloo_process_groups ...................... True
   enable_msc ...................................... True
   enable_one_logger ............................... True
+<<<<<<< HEAD
   encoder_num_layers .............................. 24
   encoder_pipeline_model_parallel_size ............ 0
   encoder_seq_length .............................. 2048
+=======
+  encoder_num_layers .............................. 12
+  encoder_pipeline_model_parallel_size ............ 0
+  encoder_seq_length .............................. 1024
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   encoder_tensor_model_parallel_size .............. 0
   end_weight_decay ................................ 0.1
   eod_mask_loss ................................... False
@@ -149,9 +170,15 @@ using torch.float16 for parameters ...
   exp_avg_dtype ................................... torch.float32
   exp_avg_sq_dtype ................................ torch.float32
   expert_model_parallel_size ...................... 1
+<<<<<<< HEAD
   expert_tensor_parallel_size ..................... 1
   external_cuda_graph ............................. False
   ffn_hidden_size ................................. 4096
+=======
+  expert_tensor_parallel_size ..................... 2
+  external_cuda_graph ............................. False
+  ffn_hidden_size ................................. 2048
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   finetune ........................................ False
   first_last_layers_bf16 .......................... False
   flash_decode .................................... False
@@ -175,7 +202,11 @@ using torch.float16 for parameters ...
   heterogeneous_layers_config_encoded_json ........ None
   heterogeneous_layers_config_path ................ None
   hidden_dropout .................................. 0.1
+<<<<<<< HEAD
   hidden_size ..................................... 1024
+=======
+  hidden_size ..................................... 512
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   hierarchical_context_parallel_sizes ............. None
   hybrid_attention_ratio .......................... 0.0
   hybrid_mlp_ratio ................................ 0.0
@@ -209,7 +240,11 @@ using torch.float16 for parameters ...
   kv_channels ..................................... 64
   kv_lora_rank .................................... 32
   lazy_mpu_init ................................... None
+<<<<<<< HEAD
   load ............................................ ../checkpoints/
+=======
+  load ............................................ ../checkpoints/345M_model/
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   local_rank ...................................... 0
   log_interval .................................... 10
   log_loss_scale_to_tensorboard ................... True
@@ -250,7 +285,11 @@ using torch.float16 for parameters ...
   mask_prob ....................................... 0.15
   mask_type ....................................... random
   masked_softmax_fusion ........................... True
+<<<<<<< HEAD
   max_position_embeddings ......................... 2048
+=======
+  max_position_embeddings ......................... 1024
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   max_tokens_to_oom ............................... 12000
   memory_snapshot_path ............................ snapshot.pickle
   merge_file ...................................... ../dataset/gpt/vocab_merge_files/gpt2-merges.txt
@@ -310,13 +349,21 @@ using torch.float16 for parameters ...
   non_persistent_save_interval .................... None
   norm_epsilon .................................... 1e-05
   normalization ................................... LayerNorm
+<<<<<<< HEAD
   num_attention_heads ............................. 16
+=======
+  num_attention_heads ............................. 8
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   num_channels .................................... 3
   num_classes ..................................... 1000
   num_dataset_builder_threads ..................... 1
   num_distributed_optimizer_instances ............. 1
   num_experts ..................................... None
+<<<<<<< HEAD
   num_layers ...................................... 24
+=======
+  num_layers ...................................... 12
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   num_layers_at_end_in_bf16 ....................... 1
   num_layers_at_start_in_bf16 ..................... 1
   num_layers_per_virtual_pipeline_stage ........... None
@@ -347,7 +394,11 @@ using torch.float16 for parameters ...
   pin_cpu_grads ................................... True
   pin_cpu_params .................................. True
   pipeline_model_parallel_comm_backend ............ None
+<<<<<<< HEAD
   pipeline_model_parallel_size .................... 3
+=======
+  pipeline_model_parallel_size .................... 2
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   pipeline_model_parallel_split_rank .............. None
   position_embedding_type ......................... learned_absolute
   pretrained_checkpoint ........................... None
@@ -397,11 +448,19 @@ using torch.float16 for parameters ...
   rotary_seq_len_interpolation_factor ............. None
   run_workload_inspector_server ................... False
   sample_rate ..................................... 1.0
+<<<<<<< HEAD
   save ............................................ ../checkpoints/
   save_interval ................................... 10
   scatter_gather_tensors_in_pipeline .............. True
   seed ............................................ 1234
   seq_length ...................................... 2048
+=======
+  save ............................................ ../checkpoints/345M_model/
+  save_interval ................................... 100
+  scatter_gather_tensors_in_pipeline .............. True
+  seed ............................................ 1234
+  seq_length ...................................... 1024
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   sequence_parallel ............................... False
   sgd_momentum .................................... 0.9
   short_seq_prob .................................. 0.1
@@ -417,7 +476,11 @@ using torch.float16 for parameters ...
   swiglu .......................................... False
   swin_backbone_type .............................. tiny
   te_rng_tracker .................................. False
+<<<<<<< HEAD
   tensor_model_parallel_size ...................... 1
+=======
+  tensor_model_parallel_size ...................... 2
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   tensorboard_dir ................................. ./tfb_logs/
   tensorboard_log_interval ........................ 1
   tensorboard_queue_size .......................... 1000
@@ -443,11 +506,19 @@ using torch.float16 for parameters ...
   tp_comm_split_ag ................................ True
   tp_comm_split_rs ................................ True
   train_data_path ................................. None
+<<<<<<< HEAD
   train_iters ..................................... 100
   train_samples ................................... None
   train_sync_interval ............................. None
   transformer_impl ................................ transformer_engine
   transformer_pipeline_model_parallel_size ........ 3
+=======
+  train_iters ..................................... 201
+  train_samples ................................... None
+  train_sync_interval ............................. None
+  transformer_impl ................................ transformer_engine
+  transformer_pipeline_model_parallel_size ........ 2
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   untie_embeddings_and_output_weights ............. False
   use_checkpoint_args ............................. False
   use_checkpoint_opt_param_scheduler .............. False
@@ -486,11 +557,16 @@ using torch.float16 for parameters ...
   weight_decay .................................... 0.1
   weight_decay_incr_style ......................... constant
   wgrad_deferral_limit ............................ 0
+<<<<<<< HEAD
   world_size ...................................... 3
+=======
+  world_size ...................................... 4
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
   yaml_cfg ........................................ None
 -------------------- end of arguments ---------------------
 INFO:megatron.core.num_microbatches_calculator:setting number of microbatches to constant 1536
 > building GPT2BPETokenizer tokenizer ...
+<<<<<<< HEAD
  > padded vocab (size: 50257) with 47 dummy tokens (new size: 50304)
 WARNING:megatron.core.rerun_state_machine:RerunStateMachine initialized in mode disabled
 > initializing torch distributed ...
@@ -500,10 +576,22 @@ WARNING:megatron.core.rerun_state_machine:RerunStateMachine initialized in mode 
 > compiling dataset index builder ...
 make: Entering directory '/workspace/megatron/megatron/core/datasets'
 [rank1]:[W430 06:31:18.117548781 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+=======
+ > padded vocab (size: 50257) with 175 dummy tokens (new size: 50432)
+WARNING:megatron.core.rerun_state_machine:RerunStateMachine initialized in mode disabled
+> initializing torch distributed ...
+> initialized tensor model parallel with size 2
+> initialized pipeline model parallel with size 2
+> setting random seeds to 1234 ...
+> compiling dataset index builder ...
+make: Entering directory '/workspace/megatron/megatron/core/datasets'
+[rank2]:[W501 09:32:49.555875874 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 2]  using GPU 2 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 make: Nothing to be done for 'default'.
 make: Leaving directory '/workspace/megatron/megatron/core/datasets'
 >>> done with dataset index builder. Compilation time: 0.034 seconds
 > compiling and loading fused kernels ...
+<<<<<<< HEAD
 > setting tensorboard ...
 WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it
 [rank2]:[W430 06:31:18.260583357 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 2]  using GPU 2 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
@@ -511,6 +599,16 @@ WARNING: one_logger package is required to enable e2e metrics tracking. please g
 >>> done with compiling and loading fused kernels. Compilation time: 0.380 seconds
 time to initialize megatron (seconds): 3.375
 [after megatron is initialized] datetime: 2025-04-30 06:31:21 
+=======
+[rank1]:[W501 09:32:49.627975253 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+> setting tensorboard ...
+WARNING: one_logger package is required to enable e2e metrics tracking. please go to https://confluence.nvidia.com/display/MLWFO/Package+Repositories for details to install it
+[rank0]:[W501 09:32:49.699808374 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[rank3]:[W501 09:32:49.748012654 ProcessGroupNCCL.cpp:4088] [PG ID 0 PG GUID 0 Rank 3]  using GPU 3 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+>>> done with compiling and loading fused kernels. Compilation time: 0.453 seconds
+time to initialize megatron (seconds): 3.530
+[after megatron is initialized] datetime: 2025-05-01 09:32:52 
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 building GPT model ...
 /workspace/megatron/megatron/core/models/gpt/gpt_layer_specs.py:94: UserWarning: The fp8 argument in "get_gpt_layer_with_transformer_engine_spec" has been deprecated and will be removed soon. Please update your code accordingly.
   warnings.warn(
@@ -518,12 +616,18 @@ building GPT model ...
   warnings.warn(
 /workspace/megatron/megatron/core/models/gpt/gpt_layer_specs.py:94: UserWarning: The fp8 argument in "get_gpt_layer_with_transformer_engine_spec" has been deprecated and will be removed soon. Please update your code accordingly.
   warnings.warn(
+<<<<<<< HEAD
+=======
+/workspace/megatron/megatron/core/models/gpt/gpt_layer_specs.py:94: UserWarning: The fp8 argument in "get_gpt_layer_with_transformer_engine_spec" has been deprecated and will be removed soon. Please update your code accordingly.
+  warnings.warn(
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 /workspace/megatron/megatron/core/models/common/embeddings/language_model_embedding.py:47: DeprecationWarning: Warning: tp_group is None, using default tp group. Passing tp_group will be mandatory soon
   self.tp_group = get_tensor_model_parallel_group_if_none(tp_group)
 /workspace/megatron/megatron/core/transformer/spec_utils.py:97: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
   return module(
 /workspace/megatron/megatron/core/transformer/spec_utils.py:97: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
   return module(
+<<<<<<< HEAD
  > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 100769792
 /workspace/megatron/megatron/core/transformer/spec_utils.py:97: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
   return module(
@@ -875,6 +979,185 @@ WARNING:megatron.core.rerun_state_machine:RerunStateMachine disabled via CLI, ig
 INFO:megatron.core.datasets.blended_megatron_dataset_config:Let split_matrix = [(0, 0.949), (0.949, 0.999), (0.999, 1.0)]
 > building train, validation, and test datasets for GPT ...
 INFO:megatron.core.datasets.blended_megatron_dataset_builder:Building GPTDataset splits with sizes=(153600, 46080, 15360) and config=GPTDatasetConfig(random_seed=1234, sequence_length=2048, blend=(['../dataset/gpt/post_proc/my-gpt-merged'], None), blend_per_split=None, split='949,50,1', split_matrix=[(0, 0.949), (0.949, 0.999), (0.999, 1.0)], num_dataset_builder_threads=1, path_to_cache=None, mmap_bin_files=True, mock=False, tokenizer=<megatron.training.tokenizer.tokenizer._GPT2BPETokenizer object at 0x7fd2f606efe0>, mid_level_dataset_surplus=0.005, reset_position_ids=False, reset_attention_mask=False, eod_mask_loss=False, create_attention_mask=True, drop_last_partial_validation_sequence=True, add_extra_token_to_sequence=True, object_storage_cache_path=None)
+=======
+/workspace/megatron/megatron/core/transformer/spec_utils.py:97: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+  return module(
+/workspace/megatron/megatron/core/transformer/spec_utils.py:97: DeprecationWarning: MLP requires ffn_hidden_size, but it was not provided. Using                     config.ffn_hidden_size by default.
+  return module(
+ > number of parameters on (tensor, pipeline) model parallel rank (1, 0): 22901248
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 1): 22377984
+ > number of parameters on (tensor, pipeline) model parallel rank (1, 1): 22377984
+ > number of parameters on (tensor, pipeline) model parallel rank (0, 0): 22901248
+INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (22377984 elements, 22377984 padded size):
+	module.decoder.final_layernorm.bias
+	module.decoder.layers.5.mlp.linear_fc1.bias
+	module.decoder.layers.4.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.4.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.3.mlp.linear_fc2.bias
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.2.mlp.linear_fc2.bias
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.1.mlp.linear_fc2.bias
+	module.decoder.layers.1.self_attention.linear_qkv.bias
+	module.decoder.layers.5.self_attention.linear_qkv.weight
+	module.decoder.layers.5.self_attention.linear_proj.weight
+	module.decoder.layers.3.mlp.linear_fc1.bias
+	module.decoder.layers.2.mlp.linear_fc1.bias
+	module.decoder.layers.1.mlp.linear_fc1.bias
+	module.decoder.layers.1.self_attention.linear_proj.bias
+	module.decoder.layers.1.self_attention.linear_proj.weight
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.0.mlp.linear_fc2.weight
+	module.decoder.layers.0.self_attention.linear_qkv.weight
+	module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.4.mlp.linear_fc1.bias
+	module.decoder.layers.4.self_attention.linear_qkv.weight
+	module.decoder.layers.4.self_attention.linear_proj.weight
+	module.decoder.layers.3.self_attention.linear_qkv.weight
+	module.decoder.layers.3.self_attention.linear_proj.weight
+	module.decoder.layers.2.self_attention.linear_qkv.weight
+	module.decoder.layers.2.self_attention.linear_proj.weight
+	module.decoder.layers.1.self_attention.linear_qkv.weight
+	module.decoder.layers.0.mlp.linear_fc1.weight
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.5.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.0.mlp.linear_fc2.bias
+	module.decoder.layers.5.self_attention.linear_qkv.bias
+	module.decoder.layers.5.self_attention.linear_proj.bias
+	module.decoder.layers.4.mlp.linear_fc2.bias
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.0.self_attention.linear_proj.weight
+	module.output_layer.weight
+	module.decoder.layers.5.mlp.linear_fc1.weight
+	module.decoder.layers.4.mlp.linear_fc2.weight
+	module.decoder.layers.4.self_attention.linear_qkv.bias
+	module.decoder.layers.4.self_attention.linear_proj.bias
+	module.decoder.layers.3.self_attention.linear_qkv.bias
+	module.decoder.layers.3.self_attention.linear_proj.bias
+	module.decoder.layers.2.self_attention.linear_qkv.bias
+	module.decoder.layers.2.self_attention.linear_proj.bias
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.0.mlp.linear_fc1.bias
+	module.decoder.layers.0.self_attention.linear_qkv.bias
+	module.decoder.layers.5.mlp.linear_fc2.weight
+	module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.3.mlp.linear_fc1.weight
+	module.decoder.layers.2.mlp.linear_fc1.weight
+	module.decoder.layers.1.mlp.linear_fc1.weight
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.0.self_attention.linear_proj.bias
+	module.decoder.layers.5.mlp.linear_fc2.bias
+	module.decoder.final_layernorm.weight
+	module.decoder.layers.5.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.4.mlp.linear_fc1.weight
+	module.decoder.layers.3.mlp.linear_fc2.weight
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.2.mlp.linear_fc2.weight
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.1.mlp.linear_fc2.weight
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight
+INFO:megatron.core.distributed.distributed_data_parallel:Setting up DistributedDataParallel with config DistributedDataParallelConfig(grad_reduce_in_fp32=False, overlap_grad_reduce=False, overlap_param_gather=False, align_param_gather=False, use_distributed_optimizer=False, num_distributed_optimizer_instances=1, check_for_nan_in_grad=False, check_for_large_grads=False, bucket_size=None, pad_buckets_for_high_nccl_busbw=False, average_in_collective=False, fp8_param_gather=False, use_custom_fsdp=False, data_parallel_sharding_strategy='no_shard', gradient_reduce_div_fusion=True, suggested_communication_unit_size=None, preserve_fp32_weights=True, keep_fp8_transpose_cache_when_using_custom_fsdp=False)
+INFO:megatron.core.distributed.param_and_grad_buffer:Number of buckets for gradient all-reduce / reduce-scatter: 1
+Params for bucket 1 (22901248 elements, 22901248 padded size):
+	module.decoder.layers.5.mlp.linear_fc1.weight
+	module.decoder.layers.4.mlp.linear_fc1.weight
+	module.decoder.layers.3.mlp.linear_fc2.weight
+	module.decoder.layers.3.self_attention.linear_qkv.bias
+	module.decoder.layers.3.self_attention.linear_proj.bias
+	module.decoder.layers.2.mlp.linear_fc2.bias
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.0.mlp.linear_fc1.weight
+	module.decoder.layers.0.self_attention.linear_qkv.bias
+	module.decoder.layers.5.mlp.linear_fc2.weight
+	module.decoder.layers.5.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.4.mlp.linear_fc2.weight
+	module.decoder.layers.4.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.2.mlp.linear_fc1.bias
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.0.self_attention.linear_proj.weight
+	module.decoder.layers.5.mlp.linear_fc2.bias
+	module.decoder.layers.5.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.4.mlp.linear_fc2.bias
+	module.decoder.layers.4.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.3.mlp.linear_fc1.weight
+	module.decoder.layers.2.self_attention.linear_qkv.weight
+	module.decoder.layers.2.self_attention.linear_proj.weight
+	module.decoder.layers.1.self_attention.linear_qkv.bias
+	module.decoder.layers.1.self_attention.linear_proj.bias
+	module.decoder.layers.0.mlp.linear_fc2.bias
+	module.embedding.word_embeddings.weight
+	module.decoder.layers.5.mlp.linear_fc1.bias
+	module.decoder.layers.4.mlp.linear_fc1.bias
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.2.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.1.mlp.linear_fc1.weight
+	module.decoder.layers.0.mlp.linear_fc1.bias
+	module.decoder.layers.0.self_attention.linear_qkv.weight
+	module.embedding.position_embeddings.weight
+	module.decoder.layers.5.self_attention.linear_qkv.weight
+	module.decoder.layers.5.self_attention.linear_proj.weight
+	module.decoder.layers.4.self_attention.linear_qkv.weight
+	module.decoder.layers.4.self_attention.linear_proj.weight
+	module.decoder.layers.3.mlp.linear_fc2.bias
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.1.mlp.linear_fc2.weight
+	module.decoder.layers.1.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.5.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.4.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.3.mlp.linear_fc1.bias
+	module.decoder.layers.3.self_attention.linear_qkv.weight
+	module.decoder.layers.3.self_attention.linear_proj.weight
+	module.decoder.layers.2.self_attention.linear_qkv.bias
+	module.decoder.layers.2.self_attention.linear_proj.bias
+	module.decoder.layers.1.mlp.linear_fc2.bias
+	module.decoder.layers.1.self_attention.linear_qkv.layer_norm_bias
+	module.decoder.layers.0.mlp.linear_fc2.weight
+	module.decoder.layers.0.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.5.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.4.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.3.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.3.self_attention.linear_qkv.layer_norm_weight
+	module.decoder.layers.2.mlp.linear_fc1.weight
+	module.decoder.layers.1.mlp.linear_fc1.bias
+	module.decoder.layers.0.mlp.linear_fc1.layer_norm_bias
+	module.decoder.layers.0.self_attention.linear_proj.bias
+	module.decoder.layers.5.self_attention.linear_qkv.bias
+	module.decoder.layers.5.self_attention.linear_proj.bias
+	module.decoder.layers.4.self_attention.linear_qkv.bias
+	module.decoder.layers.4.self_attention.linear_proj.bias
+	module.decoder.layers.2.mlp.linear_fc2.weight
+	module.decoder.layers.2.mlp.linear_fc1.layer_norm_weight
+	module.decoder.layers.1.self_attention.linear_qkv.weight
+	module.decoder.layers.1.self_attention.linear_proj.weight
+INFO:megatron.core.optimizer:Setting up optimizer with config OptimizerConfig(optimizer='adam', lr=6e-05, min_lr=6e-06, decoupled_lr=None, decoupled_min_lr=None, weight_decay=0.1, fp16=True, bf16=False, params_dtype=torch.float16, use_precision_aware_optimizer=False, store_param_remainders=True, main_grads_dtype=torch.float32, main_params_dtype=torch.float32, exp_avg_dtype=torch.float32, exp_avg_sq_dtype=torch.float32, loss_scale=None, initial_loss_scale=4294967296, min_loss_scale=1.0, loss_scale_window=1000, hysteresis=2, adam_beta1=0.9, adam_beta2=0.95, adam_eps=1e-08, sgd_momentum=0.9, use_distributed_optimizer=False, overlap_param_gather_with_optimizer_step=False, optimizer_cpu_offload=False, optimizer_offload_fraction=1.0, use_torch_optimizer_for_cpu_offload=False, overlap_cpu_optimizer_d2h_h2d=False, pin_cpu_grads=True, pin_cpu_params=True, clip_grad=1.0, log_num_zeros_in_grad=False, barrier_with_L1_time=True, timers=<megatron.core.timers.Timers object at 0x7f9e5624c760>, config_logger_dir='')
+INFO:megatron.core.optimizer_param_scheduler:> learning rate decay style: cosine
+WARNING: could not find the metadata file ../checkpoints/345M_model/latest_checkpointed_iteration.txt
+    will not load any checkpoints and will start from random
+(min, max) time across ranks (ms):
+    load-checkpoint ................................: (0.30, 0.31)
+[after model, optimizer, and learning rate scheduler are built] datetime: 2025-05-01 09:32:52 
+> building train, validation, and test datasets ...
+ > datasets target sizes (minimum size):
+    train:      308736
+    validation: 76800
+    test:       15360
+INFO:megatron.core.datasets.blended_megatron_dataset_config:Let split_matrix = [(0, 0.949), (0.949, 0.999), (0.999, 1.0)]
+> building train, validation, and test datasets for GPT ...
+INFO:megatron.core.datasets.blended_megatron_dataset_builder:Building GPTDataset splits with sizes=(308736, 76800, 15360) and config=GPTDatasetConfig(random_seed=1234, sequence_length=1024, blend=(['../dataset/gpt/post_proc/my-gpt-merged'], None), blend_per_split=None, split='949,50,1', split_matrix=[(0, 0.949), (0.949, 0.999), (0.999, 1.0)], num_dataset_builder_threads=1, path_to_cache=None, mmap_bin_files=True, mock=False, tokenizer=<megatron.training.tokenizer.tokenizer._GPT2BPETokenizer object at 0x7f9e5622b280>, mid_level_dataset_surplus=0.005, reset_position_ids=False, reset_attention_mask=False, eod_mask_loss=False, create_attention_mask=True, drop_last_partial_validation_sequence=True, add_extra_token_to_sequence=True, object_storage_cache_path=None)
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
 INFO:megatron.core.datasets.indexed_dataset:Load the _IndexReader from ../dataset/gpt/post_proc/my-gpt-merged.idx
 INFO:megatron.core.datasets.indexed_dataset:	Extract the sequence lengths
 INFO:megatron.core.datasets.indexed_dataset:	Extract the sequence pointers
@@ -882,6 +1165,7 @@ INFO:megatron.core.datasets.indexed_dataset:	Extract the document indices
 INFO:megatron.core.datasets.indexed_dataset:> total number of sequences: 165964
 INFO:megatron.core.datasets.indexed_dataset:> total number of documents: 373184
 INFO:megatron.core.datasets.gpt_dataset:Load the GPTDataset train indices
+<<<<<<< HEAD
 INFO:megatron.core.datasets.gpt_dataset:	Load the document index from 5f878dc4b9783f6ca21f1a7cc6594d0b-GPTDataset-train-document_index.npy
 INFO:megatron.core.datasets.gpt_dataset:	Load the sample index from 5f878dc4b9783f6ca21f1a7cc6594d0b-GPTDataset-train-sample_index.npy
 INFO:megatron.core.datasets.gpt_dataset:	Load the shuffle index from 5f878dc4b9783f6ca21f1a7cc6594d0b-GPTDataset-train-shuffle_index.npy
@@ -979,3 +1263,89 @@ WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disable
 [rank1]:[W430 07:12:46.021712126 ProcessGroupNCCL.cpp:1262] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
 [rank0]:[W430 07:12:47.137091037 ProcessGroupNCCL.cpp:1262] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
 [rank2]:[W430 07:12:47.194991747 ProcessGroupNCCL.cpp:1262] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
+=======
+INFO:megatron.core.datasets.gpt_dataset:	Load the document index from 79397fb1612a9e266f270a48f1d4c553-GPTDataset-train-document_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the sample index from 79397fb1612a9e266f270a48f1d4c553-GPTDataset-train-sample_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the shuffle index from 79397fb1612a9e266f270a48f1d4c553-GPTDataset-train-shuffle_index.npy
+INFO:megatron.core.datasets.gpt_dataset:> total number of samples: 341431
+INFO:megatron.core.datasets.gpt_dataset:Load the GPTDataset valid indices
+INFO:megatron.core.datasets.gpt_dataset:	Load the document index from fae04afb0dff34f0dfe741a6e0895240-GPTDataset-valid-document_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the sample index from fae04afb0dff34f0dfe741a6e0895240-GPTDataset-valid-sample_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the shuffle index from fae04afb0dff34f0dfe741a6e0895240-GPTDataset-valid-shuffle_index.npy
+INFO:megatron.core.datasets.gpt_dataset:> total number of samples: 79690
+INFO:megatron.core.datasets.gpt_dataset:Load the GPTDataset test indices
+INFO:megatron.core.datasets.gpt_dataset:	Load the document index from e3ff6d80f7cded5aeaeaa9f0effacff4-GPTDataset-test-document_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the sample index from e3ff6d80f7cded5aeaeaa9f0effacff4-GPTDataset-test-sample_index.npy
+INFO:megatron.core.datasets.gpt_dataset:	Load the shuffle index from e3ff6d80f7cded5aeaeaa9f0effacff4-GPTDataset-test-shuffle_index.npy
+INFO:megatron.core.datasets.gpt_dataset:> total number of samples: 15493
+> finished creating GPT datasets ...
+[after dataloaders are built] datetime: 2025-05-01 09:32:53 
+done with setup ...
+(min, max) time across ranks (ms):
+    model-and-optimizer-setup ......................: (151.81, 172.06)
+    train/valid/test-data-iterators-setup ..........: (6.29, 230.40)
+training ...
+Setting rerun_state_machine.current_iteration to 0...
+[before the start of training step] datetime: 2025-05-01 09:32:53 
+Number of parameters in transformer block in billions:  0.04
+Number of parameters in embedding layers in billions: 0.03
+Total number of parameters in billions: 0.06
+Number of parameters in most loaded shard in billions: 0.0224
+Number of parameters in other shards in billions: 0.0094
+Theoretical memory footprints: weight and optimizer=383.73 MB
+ [2025-05-01 09:49:38] iteration       10/     201 | consumed samples:        15360 | elapsed time per iteration (ms): 100567.4 | learning rate: 0.000000E+00 | global batch size:  1536 | loss scale: 8388608.0 | number of skipped iterations:  10 | number of nan iterations:   0 |
+[Rank 1] (after 10 iterations) memory (MB) | allocated: 285.408203125 | max allocated: 586.646484375 | reserved: 692.0 | max reserved: 692.0
+[Rank 0] (after 10 iterations) memory (MB) | allocated: 285.408203125 | max allocated: 586.646484375 | reserved: 692.0 | max reserved: 692.0
+[Rank 2] (after 10 iterations) memory (MB) | allocated: 281.22607421875 | max allocated: 536.01904296875 | reserved: 646.0 | max reserved: 646.0
+[Rank 3] (after 10 iterations) memory (MB) | allocated: 281.22607421875 | max allocated: 536.00341796875 | reserved: 648.0 | max reserved: 648.0
+ [2025-05-01 10:11:47] iteration       20/     201 | consumed samples:        30720 | elapsed time per iteration (ms): 132811.4 | learning rate: 5.581396E-07 | global batch size:  1536 | lm loss: 1.083747E+01 | loss scale: 131072.0 | grad norm: 6.409 | num zeros: 1490.0 | number of skipped iterations:   6 | number of nan iterations:   0 |
+ [2025-05-01 10:33:42] iteration       30/     201 | consumed samples:        46080 | elapsed time per iteration (ms): 131553.2 | learning rate: 1.953488E-06 | global batch size:  1536 | lm loss: 1.079125E+01 | loss scale: 131072.0 | grad norm: 7.355 | num zeros: 1019.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 10:55:27] iteration       40/     201 | consumed samples:        61440 | elapsed time per iteration (ms): 130499.4 | learning rate: 3.348837E-06 | global batch size:  1536 | lm loss: 1.063955E+01 | loss scale: 131072.0 | grad norm: 2.338 | num zeros: 345.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 11:17:21] iteration       50/     201 | consumed samples:        76800 | elapsed time per iteration (ms): 131375.2 | learning rate: 4.744186E-06 | global batch size:  1536 | lm loss: 1.054344E+01 | loss scale: 131072.0 | grad norm: 2.043 | num zeros: 313.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+(min, max) time across ranks (ms):
+    evaluate .......................................: (649637.57, 650077.82)
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+----------------------------------------------------------------------------------------------
+ validation loss at iteration 50 | lm loss value: 1.050708E+01 | lm loss PPL: 3.657360E+04 | 
+----------------------------------------------------------------------------------------------
+ [2025-05-01 11:48:58] iteration       60/     201 | consumed samples:        92160 | elapsed time per iteration (ms): 124679.6 | learning rate: 6.139535E-06 | global batch size:  1536 | lm loss: 1.048656E+01 | loss scale: 131072.0 | grad norm: 2.036 | num zeros: 367.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 12:10:55] iteration       70/     201 | consumed samples:       107520 | elapsed time per iteration (ms): 131728.3 | learning rate: 7.534884E-06 | global batch size:  1536 | lm loss: 1.042404E+01 | loss scale: 131072.0 | grad norm: 1.922 | num zeros: 431.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 12:32:54] iteration       80/     201 | consumed samples:       122880 | elapsed time per iteration (ms): 131924.9 | learning rate: 8.930233E-06 | global batch size:  1536 | lm loss: 1.036045E+01 | loss scale: 131072.0 | grad norm: 1.968 | num zeros: 367.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 12:54:57] iteration       90/     201 | consumed samples:       138240 | elapsed time per iteration (ms): 132226.1 | learning rate: 1.032558E-05 | global batch size:  1536 | lm loss: 1.029827E+01 | loss scale: 131072.0 | grad norm: 1.929 | num zeros: 350.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 13:16:58] iteration      100/     201 | consumed samples:       153600 | elapsed time per iteration (ms): 132148.5 | learning rate: 1.172093E-05 | global batch size:  1536 | lm loss: 1.023080E+01 | loss scale: 131072.0 | grad norm: 1.939 | num zeros: 363.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+(min, max) time across ranks (ms):
+    evaluate .......................................: (646808.72, 647237.49)
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 100 | lm loss value: 1.018449E+01 | lm loss PPL: 2.648912E+04 | 
+-----------------------------------------------------------------------------------------------
+Async save value:True
+saving checkpoint at iteration     100 to ../checkpoints/345M_model/ in torch_dist format
+  scheduled an async checkpoint save at iteration     100 to ../checkpoints/345M_model/
+(min, max) time across ranks (ms):
+    save-checkpoint ................................: (1003.46, 1004.92)
+  successfully saved checkpoint from iteration     100 to ../checkpoints/345M_model/ [ t 1/2, p 1/2 ]
+ [2025-05-01 13:48:32] iteration      110/     201 | consumed samples:       168960 | elapsed time per iteration (ms): 124617.1 | learning rate: 1.311628E-05 | global batch size:  1536 | lm loss: 1.015594E+01 | loss scale: 131072.0 | grad norm: 1.959 | num zeros: 322.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 14:10:25] iteration      120/     201 | consumed samples:       184320 | elapsed time per iteration (ms): 131225.4 | learning rate: 1.451163E-05 | global batch size:  1536 | lm loss: 1.007460E+01 | loss scale: 131072.0 | grad norm: 1.951 | num zeros: 293.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 14:32:28] iteration      130/     201 | consumed samples:       199680 | elapsed time per iteration (ms): 132299.4 | learning rate: 1.590698E-05 | global batch size:  1536 | lm loss: 9.985846E+00 | loss scale: 131072.0 | grad norm: 2.001 | num zeros: 341.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 14:54:42] iteration      140/     201 | consumed samples:       215040 | elapsed time per iteration (ms): 133434.1 | learning rate: 1.730233E-05 | global batch size:  1536 | lm loss: 9.890826E+00 | loss scale: 131072.0 | grad norm: 1.969 | num zeros: 366.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 15:16:44] iteration      150/     201 | consumed samples:       230400 | elapsed time per iteration (ms): 132179.0 | learning rate: 1.869767E-05 | global batch size:  1536 | lm loss: 9.787899E+00 | loss scale: 131072.0 | grad norm: 2.048 | num zeros: 322.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+(min, max) time across ranks (ms):
+    evaluate .......................................: (642340.45, 642734.56)
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+-----------------------------------------------------------------------------------------------
+ validation loss at iteration 150 | lm loss value: 9.720315E+00 | lm loss PPL: 1.665249E+04 | 
+-----------------------------------------------------------------------------------------------
+ [2025-05-01 15:48:11] iteration      160/     201 | consumed samples:       245760 | elapsed time per iteration (ms): 124393.2 | learning rate: 2.009302E-05 | global batch size:  1536 | lm loss: 9.680315E+00 | loss scale: 131072.0 | grad norm: 1.979 | num zeros: 365.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 16:10:02] iteration      170/     201 | consumed samples:       261120 | elapsed time per iteration (ms): 131160.2 | learning rate: 2.148837E-05 | global batch size:  1536 | lm loss: 9.567816E+00 | loss scale: 131072.0 | grad norm: 1.991 | num zeros: 396.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 16:31:48] iteration      180/     201 | consumed samples:       276480 | elapsed time per iteration (ms): 130552.6 | learning rate: 2.288372E-05 | global batch size:  1536 | lm loss: 9.452435E+00 | loss scale: 131072.0 | grad norm: 2.019 | num zeros: 358.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 16:53:43] iteration      190/     201 | consumed samples:       291840 | elapsed time per iteration (ms): 131544.1 | learning rate: 2.427907E-05 | global batch size:  1536 | lm loss: 9.333617E+00 | loss scale: 131072.0 | grad norm: 2.044 | num zeros: 333.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+ [2025-05-01 17:15:50] iteration      200/     201 | consumed samples:       307200 | elapsed time per iteration (ms): 132647.2 | learning rate: 2.567442E-05 | global batch size:  1536 | lm loss: 9.212823E+00 | loss scale: 131072.0 | grad norm: 2.086 | num zeros: 354.0 | number of skipped iterations:   0 | number of nan iterations:   0 |
+WARNING:megatron.core.rerun_state_machine:Setting RerunStateMachine mode disabled
+>>>>>>> d9d1363a11ece715eae981c0a246574ef2445f73
