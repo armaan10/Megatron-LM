@@ -59,10 +59,16 @@ def main():
             print("Launched")
             if not is_proc_alive(train_proc):
                 train_started = False
+                train_done = False
                 with open(log_path, "r") as f:
                     for line_num, line in enumerate(f, 1):
                         if "training ..." in line:
                             train_started = True
+                        if "after training is done" in line:
+                            print("Training has successfully completed shutting down all processes")
+                            os.killpg(os.getpgid(monitor_proc.pid), signal.SIGTERM)
+                            exit()
+
                 if train_started:
                     #do recovery
                     print("Booting up recovery")
