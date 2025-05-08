@@ -667,6 +667,6 @@ Below are some of the projects where we have directly used Megatron:
 * [InstructRetro: Instruction Tuning post Retrieval-Augmented Pretraining](https://arxiv.org/abs/2310.07713)
 * [An Empirical Study of Mamba-based Language Models](https://arxiv.org/abs/2406.07887)
 
-# Proactive Fault Tolerant System
+## Proactive Fault Tolerant System
 
 The GPU Monitoring Scripts are in the gpu_metric folder and the master node along with recovery scripts are in the master_scripts folder.
