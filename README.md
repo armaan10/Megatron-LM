@@ -61,8 +61,7 @@ Megatron-LM & Megatron-Core
   - [Model class conversion](#model-class-conversion)
   - [Checkpoint format conversion](#checkpoint-format-conversion)
 - [Projects Using Megatron](#projects-using-megatron)
-- [Proactive Fault Tolerant System](#fault-sys-megatron)
-
+- [Proactive Fault Tolerant System](#proactive-fault-tolerant-system)
 # Megatron Overview
 This repository comprises two essential components: **Megatron-LM** and **Megatron-Core**. Megatron-LM serves as a research-oriented framework leveraging Megatron-Core for large language model (LLM) training. Megatron-Core, on the other hand, is a library of GPU optimized training techniques that comes with formal product support including versioned APIs and regular releases. You can use Megatron-Core alongside Megatron-LM or [Nvidia NeMo Framework](https://docs.nvidia.com/deeplearning/nemo/user-guide/docs/en/main/nlp/nemo_megatron/mcore_customization.html) for an end-to-end and cloud-native solution. Alternatively, you can integrate Megatron-Core's building blocks into your preferred training framework.
 
