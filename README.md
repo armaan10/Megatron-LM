@@ -281,29 +281,29 @@ The general idea of this checkpoint format converter is that it launches the mod
 
 File structure updated - 
 
-├── gpu_metric/
-│   ├── gpu_logs/       
-│       ├── gpu_detailed_metrics.csv
-|       ├── gpu_detailed_metrics_intenseload.csv
-|       ├── gpu_metrics.csv
-|   |── checkpointing.py 
-|   |── gpu_failure_intenseload.py  
-|   |── gpu_failure_simulation.py  
-|   |── metric_collection.py 
-|   |── recover.py 
+├── gpu_metric/ <br />
+│   ├── gpu_logs/   <br />    
+│       ├── gpu_detailed_metrics.csv <br />
+|       ├── gpu_detailed_metrics_intenseload.csv <br />
+|       ├── gpu_metrics.csv <br />
+|   |── checkpointing.py <br />
+|   |── gpu_failure_intenseload.py <br />  
+|   |── gpu_failure_simulation.py  <br />
+|   |── metric_collection.py <br />
+|   |── recover.py <br />
 |
-├── master_scripts/
-│   ├── master_node.py    
-│   ├── test.py    
-│   └── recovery_utils.py    
+├── master_scripts/ <br />
+│   ├── master_node.py    <br />
+│   ├── test.py    <br /> 
+│   └── recovery_utils.py <br />   
 │
-├── megatron/
-|   ├── training/
-│       |── training.py
+├── megatron/ <br />
+|   ├── training/ <br />
+│       |── training.py <br />
 |
-├── examples/gpt3/
-|       ├── train_gpt3_175b_distributed.sh
+├── examples/gpt3/ <br />
+|       ├── train_gpt3_175b_distributed.sh <br />
 |
-└── README.md                     # This file
+└── README.md                     # This file <br />
 
 
