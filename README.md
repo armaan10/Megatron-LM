@@ -281,29 +281,27 @@ The general idea of this checkpoint format converter is that it launches the mod
 
 File structure updated - 
 
-├── gpu_metric/ <br />
-│   ├── gpu_logs/   <br />    
-│       ├── gpu_detailed_metrics.csv <br />
-|       ├── gpu_detailed_metrics_intenseload.csv <br />
-|       ├── gpu_metrics.csv <br />
-|   |── checkpointing.py <br />
-|   |── gpu_failure_intenseload.py <br />  
-|   |── gpu_failure_simulation.py  <br />
-|   |── metric_collection.py <br />
-|   |── recover.py <br />
-|
-├── master_scripts/ <br />
-│   ├── master_node.py    <br />
-│   ├── test.py    <br /> 
-│   └── recovery_utils.py <br />   
+├── gpu_metric/                # GPU metric collection and failure simulation
+│   ├── gpu_logs/              # Raw logs directory
+│   ├── gpu_detailed_metrics.csv
+│   ├── gpu_detailed_metrics_intenseload.csv
+│   ├── gpu_metrics.csv
+│   ├── checkpointing.py       # Checkpoint save/load utilities
+│   ├── gpu_failure_intenseload.py  # Simulate failures under heavy load
+│   ├── gpu_failure_simulation.py   # General GPU failure simulation
+│   ├── metric_collection.py   # Scripts for gathering GPU metrics
+│   └── recover.py             # Recovery logic after simulated failures
 │
-├── megatron/ <br />
-|   ├── training/ <br />
-│       |── training.py <br />
-|
-├── examples/gpt3/ <br />
-|       ├── train_gpt3_175b_distributed.sh <br />
-|
-└── README.md                     # This file <br />
+├── master_scripts/            # Orchestration and scheduling
+│   ├── master_node.py         # Main controller for distributed experiments
+│   ├── test.py                # Test harness for integration
+│   └── recovery_utils.py      # Shared functions for recovery workflows
+│
+└── megatron/                  # Megatron-LM training and examples
+    ├── training/              # Core training scripts
+    │   └── training.py        # Distributed training entry point
+    ├── examples/gpt3/         # Sample configurations and data for GPT-3
+    ├── train_gpt3_175b_distributed.sh  # Shell script to launch 175B model training
+    └── README.md              # This file
 
 
