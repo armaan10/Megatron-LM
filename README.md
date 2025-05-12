@@ -1,4 +1,36 @@
-<div align="center">
+
+# GPU Metric Collection and Fault Tolerance for Megatron-LM
+
+This repository provides a modular framework for simulating GPU failures, collecting detailed GPU metrics, and recovering distributed training jobs—specifically targeting Megatron-LM training pipelines.
+
+---
+
+## 📁 Project Structure
+
+```
+├── gpu_metric/                        # GPU metric collection and failure simulation
+│   ├── gpu_logs/                      # Raw logs directory
+│   ├── gpu_detailed_metrics.csv       # Detailed GPU usage data
+│   ├── gpu_detailed_metrics_intenseload.csv  # Metrics under high-load scenarios
+│   ├── gpu_metrics.csv                # Aggregated GPU metrics
+│   ├── checkpointing.py               # Checkpoint save/load utilities
+│   ├── gpu_failure_intenseload.py     # Simulate failures under intense GPU usage
+│   ├── gpu_failure_simulation.py      # General-purpose GPU failure simulation
+│   ├── metric_collection.py           # Scripts to collect GPU health and usage data
+│   └── recover.py                     # Logic for recovery after GPU faults
+│
+├── master_scripts/                    # Orchestration and control
+│   ├── master_node.py                 # Central controller for scheduling and coordination
+│   ├── test.py                        # Integration test entry point
+│   └── recovery_utils.py              # Shared recovery helper functions
+│
+└── megatron/                          # Megatron-LM training scripts and examples
+    ├── training/                      # Core training implementation
+    │   └── training.py                # Launch training with fault tolerance hooks
+    ├── examples/gpt3/                 # Example GPT-3 configs and helper files
+    ├── train_gpt3_175b_distributed.sh # Shell script to train GPT-3 175B model
+    └── README.md                      # Megatron-specific documentation
+```
 
 Megatron-LM & Megatron-Core
 ===========================
@@ -8,7 +40,6 @@ Megatron-LM & Megatron-Core
 [![version](https://img.shields.io/badge/release-0.5.0-green)](./setup.py)
 [![license](https://img.shields.io/badge/license-OpenBSD-blue)](./LICENSE)
 
-<div align="left">
 
 # Table of Contents
 
@@ -276,32 +307,3 @@ Generally speaking, `torch_dist` is the more modern and recommended checkpoint f
 - `--ckpt-convert-save ${PATH_TO_SAVE_NEW_FORMAT}`: this path should be different than your existing `--load`/`--save` paths, to avoid overwriting the existing checkpoint. After converting, use this new path for your `--load`/`--save` paths.
 
 The general idea of this checkpoint format converter is that it launches the model just as one normally would for training, but before running any training iterations, it saves to the new checkpoint format, and then exits. It is important to note that all other launch args should remain the same, in order for the system to understand the previous checkpoint format.
-
-## Proactive Fault Tolerant System
-
-File structure updated - 
-
-├── gpu_metric/                # GPU metric collection and failure simulation
-│   ├── gpu_logs/              # Raw logs directory
-│   ├── gpu_detailed_metrics.csv
-│   ├── gpu_detailed_metrics_intenseload.csv
-│   ├── gpu_metrics.csv
-│   ├── checkpointing.py       # Checkpoint save/load utilities
-│   ├── gpu_failure_intenseload.py  # Simulate failures under heavy load
-│   ├── gpu_failure_simulation.py   # General GPU failure simulation
-│   ├── metric_collection.py   # Scripts for gathering GPU metrics
-│   └── recover.py             # Recovery logic after simulated failures
-│
-├── master_scripts/            # Orchestration and scheduling
-│   ├── master_node.py         # Main controller for distributed experiments
-│   ├── test.py                # Test harness for integration
-│   └── recovery_utils.py      # Shared functions for recovery workflows
-│
-└── megatron/                  # Megatron-LM training and examples
-    ├── training/              # Core training scripts
-    │   └── training.py        # Distributed training entry point
-    ├── examples/gpt3/         # Sample configurations and data for GPT-3
-    ├── train_gpt3_175b_distributed.sh  # Shell script to launch 175B model training
-    └── README.md              # This file
-
-
