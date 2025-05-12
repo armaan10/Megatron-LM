@@ -185,24 +185,6 @@ python tools/checkpoint/convert.py \
 
 Several downstream tasks are described for both GPT and BERT models below. They can be run in distributed and model parallel modes with the same changes used in the training scripts.
 
-## GPT Text Generation
-
-We have included a simple REST server to use for text generation in `tools/run_text_generation_server.py`. You run it much like you would start a pretraining job, specifying an appropriate pretrained checkpoint. There are also few optional parameters: `temperature`, `top-k`and `top-p`. See `--help` or the source file for more information. See [examples/inference/run_text_generation_server_345M.sh](examples/inference/run_text_generation_server_345M.sh) for an example of how to run the server.
-
-Once the server is running you can use `tools/text_generation_cli.py` to query it, it takes one argument which is the host the server is running on.
-
-<pre>
-tools/text_generation_cli.py localhost:5000
-</pre>
-
-You can also use CURL or any other tools to query the server directly:
-
-<pre>
-curl 'http://localhost:5000/api' -X 'PUT' -H 'Content-Type: application/json; charset=UTF-8'  -d '{"prompts":["Hello world"], "tokens_to_generate":1}'
-</pre>
-
-See [megatron/inference/text_generation_server.py](megatron/inference/text_generation_server.py) for more API options.
-
 ## GPT Evaluation
 We include example scripts for GPT evaluation on WikiText perplexity evaluation and LAMBADA Cloze accuracy.
 
