@@ -279,4 +279,31 @@ The general idea of this checkpoint format converter is that it launches the mod
 
 ## Proactive Fault Tolerant System
 
-The GPU Monitoring Scripts are in the gpu_metric folder and the master node along with recovery scripts are in the master_scripts folder.
+File structure updated - 
+
+├── gpu_metric/
+│   ├── gpu_logs/       
+│       ├── gpu_detailed_metrics.csv
+|       ├── gpu_detailed_metrics_intenseload.csv
+|       ├── gpu_metrics.csv
+|   |── checkpointing.py 
+|   |── gpu_failure_intenseload.py  
+|   |── gpu_failure_simulation.py  
+|   |── metric_collection.py 
+|   |── recover.py 
+|
+├── master_scripts/
+│   ├── master_node.py    
+│   ├── test.py    
+│   └── recovery_utils.py    
+│
+├── megatron/
+|   ├── training/
+│       |── training.py
+|
+├── examples/gpt3/
+|       ├── train_gpt3_175b_distributed.sh
+|
+└── README.md                     # This file
+
+
